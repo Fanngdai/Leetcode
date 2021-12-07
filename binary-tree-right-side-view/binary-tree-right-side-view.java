@@ -17,8 +17,7 @@ class Solution {
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> result = new ArrayList<Integer>();
         if(root!=null) {
-            result.add(root.val);
-            rightSideViewHelper(root, result, 1);
+            rightSideViewHelper(root, result, 0);
         }
         return result;
     }
@@ -29,10 +28,10 @@ class Solution {
         }
         
         // Replace value at that level if exist, otherwise add new index
-        if(result.size() < level) {
+        if(result.size() <= level) {
             result.add(root.val);
         } else {
-            result.set(level-1, root.val);
+            result.set(level, root.val);
         }
         
         if(root.left != null) {
