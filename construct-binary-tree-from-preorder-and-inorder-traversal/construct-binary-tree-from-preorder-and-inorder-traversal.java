@@ -37,3 +37,8 @@ class Solution {
         return root;
     }
 }
+
+/*
+ * To prune, have an index for preorder and inorder and pass it in a as a param, but I
+ * got other problems to solve sooooo peaceeeeee
+ */
