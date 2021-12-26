@@ -7,7 +7,7 @@ class Solution {
      * If only one value, return that one value
      */
     public int maxProduct(int[] nums) {
-        int counter = nums[0], counter2 = nums[0], max = nums[0];
+        int counter = nums[0], counter2 = 1, max = nums[0];
         boolean zeroFound = true;
         
         for(int i=1; i<nums.length; i++) {            
@@ -23,9 +23,21 @@ class Solution {
                 }
                 counter *= nums[i];
                 counter2 *= nums[i];
-                max = Math.max(max, Math.max(counter, counter2));
+                
+                if(counter > max)
+                    max = counter;
+                if(counter2 > max)
+                    max = counter2;
             }
             max = Math.max(nums[i], max);
+        }
+        return max;
+    }
+    
+    private int max(int... nums) {
+        int max = Integer.MIN_VALUE;
+        for(int i: nums) {
+            max = Math.max(max, i);
         }
         return max;
     }
