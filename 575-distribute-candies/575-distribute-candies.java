@@ -7,6 +7,8 @@ class Solution {
         
         for(int i=0; i<amtCandies; i++) {
             set.add(candyType[i]);
+            if(set.size() == amtCandies/2)
+                return amtCandies/2;
         }
         
         return Math.min(amtCandies/2, set.size());
