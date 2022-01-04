@@ -3,7 +3,7 @@ class Solution {
         if(num == 0)
             return "0";
         
-        StringBuilder rtn = new StringBuilder();
+        String rtn = "";
         boolean isNeg = false;
         
         if(num<0) {
@@ -12,14 +12,14 @@ class Solution {
         }
         
         while(num != 0) {
-            rtn.append(num%7);
+            rtn = (num%7) + rtn;
             num /= 7;
         }
         
         if(isNeg) {
-            rtn.append("-");
+            rtn = "-" + rtn;
         }
         
-        return rtn.reverse().toString();
+        return rtn;
     }
 }
