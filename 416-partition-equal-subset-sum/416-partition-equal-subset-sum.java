@@ -16,7 +16,6 @@ class Solution {
     }
     
     private boolean findSum(int[] nums, int sum, int index, Set<Integer> set) {
-        System.out.println(sum + "\t" + index);
         if(sum == 0) {
             return true;
         } else if(index >= nums.length || sum < 0) {
@@ -28,7 +27,6 @@ class Solution {
             return true;
         if((nums.length-1)*100 > sum && findSum(nums, sum, index+1, set))
             return true;
-        // set.remove(sum);
         
         return false;
     }
