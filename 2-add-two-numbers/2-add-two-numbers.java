@@ -24,13 +24,15 @@ class Solution {
             l2.val = sum % 10;
             carryover = sum / 10;
             
-            if(l2.next == null && l1 != null) {
-                l2.next = l1;
-                l1 = null;
-            } else if(l2.next == null && carryover != 0) {
-                ListNode temp = new ListNode(carryover);
-                l2.next = temp;
-                carryover = 0;
+            if(l2.next == null) {
+                if(l1 != null) {
+                    l2.next = l1;
+                    l1 = null;
+                } else if(carryover != 0) {
+                    ListNode temp = new ListNode(carryover);
+                    l2.next = temp;
+                    carryover = 0;
+                }
             }
             
             l2 = l2.next;
