@@ -10,10 +10,10 @@ class Solution {
     
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode rtn = l2;
-        int carryover = 0;
+        int carryover = 0, sum;
         
         while(l1 != null || l2 != null) {
-            int sum = carryover;
+            sum = carryover;
             
             if(l1 != null) {
                 sum += l1.val;
