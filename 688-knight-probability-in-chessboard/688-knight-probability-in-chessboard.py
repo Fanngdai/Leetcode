@@ -24,9 +24,11 @@ class Solution:
         direction = [[-1,2],[-1,-2],[-2,-1],[-2,1],[1,2],[1,-2],[2,1],[2,-1]]
         for loc in locations:
             lst = loc.split(",")
+            row = int(lst[0])
+            col = int(lst[1])
             for dir in direction:
-                r = int(lst[0])+dir[0]
-                c = int(lst[1])+dir[1]
+                r = row+dir[0]
+                c = col+dir[1]
                 if self.validDirection(r, c, boardsize):
                     word = str(r) + "," + str(c)
                     if word in rtn:
