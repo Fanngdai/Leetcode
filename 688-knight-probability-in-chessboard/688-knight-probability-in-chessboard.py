@@ -1,7 +1,6 @@
 class Solution:
     def knightProbability(self, boardsize: int, amtMove: int, row: int, col: int) -> float:
         if amtMove == 0:
-            print("###")
             return 1
         elif boardsize < 3:
             return 0
@@ -14,7 +13,6 @@ class Solution:
         
         for i in range(amtMove):
             locations, amt = self.probOfMove(boardsize, locations)
-            # print(locations,"\t",amt)
                   
         return amt
         
@@ -36,7 +34,6 @@ class Solution:
                     else:
                         rtn[word] = locations[loc]
                     amt += locations[loc]
-                    # print(loc,"\t",rtn[tuple([r,c])],"\t",amt)
         return rtn, amt
 
     def validDirection(self, row, col, boardsize):
