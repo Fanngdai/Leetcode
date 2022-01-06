@@ -17,7 +17,7 @@ class Solution {
         StringBuilder sb = new StringBuilder();
         for(int i=0; i<s.length(); i++) {
             sb.append(s.charAt(i));
-            if(wordCountSet.contains(i+1) && !wordSet.contains(s.substring(i+1, s.length()))
+            if(!wordSet.contains(s.substring(i+1, s.length()))
                && trie.exist(sb.toString())) {
                 wordSet.add(s.substring(i+1, s.length()));
                 if(wordBreakHelper(s.substring(i+1,s.length()), trie, wordCountSet, wordSet)) {
