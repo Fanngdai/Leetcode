@@ -10,9 +10,8 @@ class Solution {
             temp[i] = temp[i-1] * nums[i];
         }
         
-        int rightProd = nums[arrLen-1];
-        temp[arrLen-1] = temp[arrLen-2];
-        for(int i = arrLen-2; i>0; i--) {
+        int rightProd = 1;
+        for(int i = arrLen-1; i>0; i--) {
             temp[i] = rightProd * temp[i-1];
             rightProd *= nums[i];
         }
