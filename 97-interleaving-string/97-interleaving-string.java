@@ -16,13 +16,17 @@ class Solution {
         // fill in first row, take value from left
         for(int c=1; c<=s2Len; c++) {
             if(s2.charAt(c-1) == s3.charAt(c-1)) {
-                dp[0][c] = dp[0][c-1];
+                dp[0][c] = true;
+            } else {
+                break;
             }
         }
         // fill in first col, take value from top
         for(int r=1; r<=s1Len; r++) {
             if(s1.charAt(r-1) == s3.charAt(r-1)) {
-                dp[r][0] = dp[r-1][0];
+                dp[r][0] = true;
+            } else {
+                break;
             }
         }
         
