@@ -12,11 +12,12 @@ class Solution {
             }
             rtn.add(s);
             return;
-        } else if(close < open) {
-            return;
         }
         
         generateParenthesisHelper(open-1, close, s+'(', rtn);
-        generateParenthesisHelper(open, close-1, s+')', rtn);
+        // there are more opening brackets than closing brackets
+        if(open <= close-1) {
+            generateParenthesisHelper(open, close-1, s+')', rtn);
+        }
     }
 }
