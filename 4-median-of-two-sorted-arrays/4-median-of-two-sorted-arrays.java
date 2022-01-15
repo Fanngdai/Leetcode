@@ -15,9 +15,11 @@ class Solution {
                 if(counter1 < len1 && counter2 < len2) {
                     temp = Math.min(nums1[counter1], nums2[counter2]);
                 } else if(counter1 < len1) {
-                    return (double)(nums1[counter1] + nums1[counter1+1])/2;
+                    temp = nums1[counter1] + nums1[counter1+1];
+                    break;
                 } else {
-                    return (double)(nums2[counter2] + nums2[counter2+1])/2;
+                    temp = nums2[counter2] + nums2[counter2+1];
+                    break;
                 }
             } else if(counter1 + counter2 == mid){
                 // is odd
@@ -28,7 +30,7 @@ class Solution {
                 } else {
                     temp = temp + nums2[counter2];
                 }
-                return even ? (double)temp/2 : temp;
+                break;
             }
             
             // look for min in both array
@@ -45,7 +47,7 @@ class Solution {
             }
         }
         
-        return -1;
+        return even ? (double)temp/2 : temp;
     }
 }
 
