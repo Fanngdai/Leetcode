@@ -19,14 +19,14 @@ class Solution {
                    || tempCol > gridLen-1 || grid[tempRow][tempCol] > 2500)
                     continue;
                 minHeap.add((grid[tempRow][tempCol]<<12) ^ (tempRow<<6) ^ tempCol);
-                grid[tempRow][tempCol] = 2501;
+                grid[tempRow][tempCol] = Integer.MAX_VALUE;
             }
             
             // update the next val
-            int tempVal = minHeap.poll();
-            rtn = Math.max(rtn, tempVal >> 12);
-            row = tempVal >> 6 & 63;
-            col = tempVal & 63;
+            // int tempVal = minHeap.poll();
+            rtn = Math.max(rtn, minHeap.peek() >> 12);
+            row = minHeap.peek() >> 6 & 63;
+            col = minHeap.poll() & 63;
         }
         return rtn;
     }
