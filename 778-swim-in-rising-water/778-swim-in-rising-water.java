@@ -19,7 +19,7 @@ class Solution {
                    || tempCol > gridLen-1 || grid[tempRow][tempCol] > 2500)
                     continue;
                 minHeap.add((grid[tempRow][tempCol]<<12) ^ (tempRow<<6) ^ tempCol);
-                grid[tempRow][tempCol] = Integer.MAX_VALUE;
+                grid[tempRow][tempCol] = 2501;
             }
             
             // update the next val
