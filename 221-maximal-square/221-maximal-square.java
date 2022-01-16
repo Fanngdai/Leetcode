@@ -42,9 +42,8 @@ class Solution {
         for(int[] d: directions) {
             int tempR = row+d[0], tempC = col+d[1];
             min = Math.min(min, matrix[tempR][tempC]);
-            if(min == 0) return 0;
         }
-        return min == Integer.MAX_VALUE ? 0 : min;
+        return min;
     }
     
     /*
