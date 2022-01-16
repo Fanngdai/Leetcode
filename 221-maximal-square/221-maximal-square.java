@@ -3,8 +3,6 @@ class Solution {
         int matrixRowLen = matrix.length, matrixColLen = matrix[0].length, max = 0;
         // must init this, bc char only holds one char... but what if the square is multiple digits?
         int[][] matrixInt = new int[matrixRowLen][matrixColLen];
-        // diagonal up left, left, up
-        int[][] directions = {{-1,-1},{0,-1},{-1,0}};
         
         // go through first row & col bc. we don't need to calc those.
         // It'll always be the same values!
@@ -22,13 +20,14 @@ class Solution {
         for(int r=1; r<matrixRowLen; r++) {
             for(int c=1; c<matrixColLen; c++) {
                 if(matrix[r][c] == '1') {
-                    matrixInt[r][c] = maximalSquareHelper(matrixInt, directions, r, c) + 1;
+                    matrixInt[r][c] = maximalSquareHelper(matrixInt, r, c) + 1;
                     max = Math.max(max, matrixInt[r][c]);
                 } else {
                     matrixInt[r][c] = 0;
                 }
             }
         }
+        
         // printBoard(matrixInt);
         return max*max;
     }
@@ -36,14 +35,14 @@ class Solution {
     /*
      * Get the min value from diagonal up left, left, up
      */
-    private int maximalSquareHelper(int[][] matrix, int[][] directions, int row, int col) {
+    private int maximalSquareHelper(int[][] matrix, int row, int col) {
         int matrixRowLen = matrix.length, matrixColLen = matrix[0].length, min = Integer.MAX_VALUE;
+        int[][] directions = {{-1,-1},{0,-1},{-1,0}};
         
         for(int[] d: directions) {
             int tempR = row+d[0], tempC = col+d[1];
-            if(tempR < matrixRowLen && tempC < matrixColLen) {
-                min = Math.min(min, matrix[tempR][tempC]);
-            }
+            min = Math.min(min, matrix[tempR][tempC]);
+            if(min == 0) return 0;
         }
         return min == Integer.MAX_VALUE ? 0 : min;
     }
