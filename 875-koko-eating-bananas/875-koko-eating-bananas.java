@@ -2,8 +2,8 @@ class Solution {
     public int minEatingSpeed(int[] piles, int h) {
         int pLen = piles.length, min = 1, max = 0;
         
-        for(int i=0; i<pLen; i++) {
-            max = Math.max(max, piles[i]);
+        for(int i: piles) {
+            max = Math.max(max, i);
         }
         
         if(pLen == h) {
@@ -12,7 +12,7 @@ class Solution {
         
         while(min < max) {
             int mid = min + (max-min) / 2;
-            int hoursReqForMid = calcHoursNeeded(piles, mid);
+            int hoursReqForMid = calcHoursNeeded(piles, mid, h);
             
             // if hoursReq is more, that means the value is too small
             if(hoursReqForMid > h) {
@@ -25,10 +25,13 @@ class Solution {
         return max;
     }
     
-    private int calcHoursNeeded(int[] piles, int val) {
+    private int calcHoursNeeded(int[] piles, int val, int hour) {
         int rtn = 0;
         for(int i=0; i<piles.length; i++) {
             rtn += Math.ceil((double)piles[i]/val);
+            if(rtn > hour) {
+                return rtn;
+            }
         }
         return rtn;
     }
