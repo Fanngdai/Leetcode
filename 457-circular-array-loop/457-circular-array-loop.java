@@ -21,6 +21,7 @@ class Solution {
         
         do {
             slow = (slow + nums[slow] + nLen) % nLen;
+            if(set.contains(slow) && slow != start) return false;
             set.add(slow);
             fast = (fast + nums[fast] + nLen) % nLen;
             fast = (fast + nums[fast] + nLen) % nLen;
