@@ -9,8 +9,8 @@ class Solution {
         
         for(int i=0; i<nLen; i++) {
             if(set.contains(i)) continue;
-            set.add(i);
             if(circularArrayLoopHelper(nums, nLen, set, i)) return true;
+            set.add(i);
         }
         
         return false;
@@ -21,7 +21,7 @@ class Solution {
         
         do {
             slow = (slow + nums[slow] + nLen) % nLen;
-            if(set.contains(slow) && slow != start) return false;
+            if(set.contains(slow)) return false;
             set.add(slow);
             fast = (fast + nums[fast] + nLen) % nLen;
             fast = (fast + nums[fast] + nLen) % nLen;
