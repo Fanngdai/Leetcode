@@ -10,7 +10,6 @@ class Solution {
         for(int i=0; i<nLen; i++) {
             if(set.contains(i)) continue;
             if(circularArrayLoopHelper(nums, nLen, set, i)) return true;
-            set.add(i);
         }
         
         return false;
