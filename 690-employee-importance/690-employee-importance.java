@@ -18,7 +18,7 @@ class Solution {
         // for dealing with calc importance
         Queue<Employee> queue = new LinkedList<>();
         queue.add(hashMap.get(id));
-        hashMap.remove(id);
+        // hashMap.remove(id);
         
         int rtn = 0;
         
@@ -27,10 +27,10 @@ class Solution {
             rtn += currEmployee.importance;
             
             for(int i: currEmployee.subordinates) {
-                if(hashMap.containsKey(i)) {
+                // if(hashMap.containsKey(i)) {
                     queue.add(hashMap.get(i));
-                    hashMap.remove(i);
-                }
+                    // hashMap.remove(i);
+                // }
             }
         }
         
